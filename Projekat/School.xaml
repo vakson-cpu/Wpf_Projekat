@@ -1,0 +1,57 @@
+﻿<Page x:Class="Projekat.School"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+      xmlns:local="clr-namespace:Projekat"
+
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Background="White"
+      Title="School">
+
+    <Grid>
+        <TextBlock  Text="Registracija za Skolu" HorizontalAlignment="Center" FontSize="35" />
+        <StackPanel HorizontalAlignment="Center" Margin="30,70,40.2,-0.4" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" FontSize="15" >Naziv:</TextBlock>
+                <TextBox x:Name="Ime1" Width="200" Height="25"></TextBox>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock   Margin="10,10,10,0" FontSize="15">Sifra</TextBlock>
+                <PasswordBox
+                    x:Name="Sifra1" Width="200" 
+                    materialDesign:HintAssist.Hint="Sifra"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    materialDesign:HintAssist.HelperText="Minimum 8 karaktera" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
+                <TextBlock Margin="10,10,10,0" FontSize="15">Sifra</TextBlock>
+                <PasswordBox
+                    x:Name="Sifra2" Width="200" 
+                    materialDesign:HintAssist.Hint="Sifra"
+                    materialDesign:TextFieldAssist.HasClearButton="True"
+                    materialDesign:HintAssist.HelperText="Minimum 8 karaktera" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="10" FontSize="15" >Grad</TextBlock>
+                <TextBox x:Name="Grad" Width="200" Height="25"></TextBox>
+            </StackPanel>
+            <Button  Margin="0,20,0,0"
+            Click="Register"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Width="200"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+            Content="Register" />
+        </StackPanel>
+        <Button
+  Click="Button_Click"  
+  Style="{StaticResource MaterialDesignRaisedLightButton}"
+  Width="100" 
+  ToolTip="Resource name: MaterialDesignRaisedLightButton"
+  Content="Vrati" Margin="0,0,700,417.6" />
+    </Grid>
+</Page>

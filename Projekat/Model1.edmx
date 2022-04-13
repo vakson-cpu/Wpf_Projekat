@@ -1,0 +1,985 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BazaPodatakaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="20" />
+          <Property Name="Prezime" Type="varchar" MaxLength="20" />
+          <Property Name="Sifra" Type="varchar" MaxLength="20" />
+          <Property Name="Pol" Type="varchar" MaxLength="1" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Drzava" Type="varchar" MaxLength="50" />
+          <Property Name="JMBG" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Arhiva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Takmicara" Type="int" />
+          <Property Name="Datum" Type="datetime" />
+          <Property Name="Id_mvpija" Type="int" />
+        </EntityType>
+        <EntityType Name="Mec">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="50" />
+          <Property Name="Razred1" Type="int" />
+          <Property Name="Razred2" Type="int" />
+          <Property Name="Poen1" Type="int" />
+          <Property Name="Poen2" Type="int" />
+          <Property Name="Odigrano" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MVP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="25" />
+          <Property Name="Id_uceniak" Type="int" />
+        </EntityType>
+        <EntityType Name="MVP1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Ucenika" Type="int" />
+        </EntityType>
+        <EntityType Name="MVPOkruznogTakmicenja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Ucenika" Type="int" />
+        </EntityType>
+        <EntityType Name="MVPSkolskogTakmicenja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="25" />
+          <Property Name="Id_ucenika" Type="int" />
+        </EntityType>
+        <EntityType Name="NepotvrdjeniUcenici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Visina" Type="float" Nullable="false" />
+          <Property Name="Sifra" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Godine" Type="int" Nullable="false" />
+          <Property Name="Naziv_Skole" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pol" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="JMBG" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Razred" Type="int" />
+        </EntityType>
+        <EntityType Name="OkruzniMec">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NazivSkole1" Type="varchar" MaxLength="50" />
+          <Property Name="Razred1" Type="int" />
+          <Property Name="NazivSkole2" Type="varchar" MaxLength="50" />
+          <Property Name="Razred2" Type="int" />
+          <Property Name="Poen1" Type="int" />
+          <Property Name="Poen2" Type="int" />
+          <Property Name="Odigrano" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OkruznoTakmicenje">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="50" />
+          <Property Name="Razred" Type="int" />
+        </EntityType>
+        <EntityType Name="Pobede">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_tima" Type="int" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Pobede2">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id-TIma" Type="int" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PobednikOkruznogTakmicenja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="50" />
+          <Property Name="Id_tima" Type="int" />
+        </EntityType>
+        <EntityType Name="PobednikSkolskogTakmcienja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Tima" Type="int" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="PomocnaSkola">
+          <Key>
+            <PropertyRef Name="Naziv" />
+          </Key>
+          <Property Name="Naziv" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifra" Type="varchar" MaxLength="50" />
+          <Property Name="Grad" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RsSkolskog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_ucenika" Type="int" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="25" />
+          <Property Name="Razred" Type="int" />
+          <Property Name="Red" Type="int" />
+          <Property Name="Kolona" Type="int" />
+        </EntityType>
+        <EntityType Name="Skola">
+          <Key>
+            <PropertyRef Name="Naziv" />
+          </Key>
+          <Property Name="Naziv" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Sifra" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Grad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statistika">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrPoena" Type="int" />
+          <Property Name="Efikasnost" Type="float" />
+          <Property Name="ID_UCENIKA" Type="int" />
+        </EntityType>
+        <EntityType Name="Takmicenje">
+          <Key>
+            <PropertyRef Name="IdTakmicenja" />
+          </Key>
+          <Property Name="IdTakmicenja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivSkole" Type="varchar" MaxLength="25" />
+          <Property Name="Razred" Type="int" />
+        </EntityType>
+        <EntityType Name="Tim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_Skole" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="id_ucenika" Type="int" Nullable="false" />
+          <Property Name="Razred" Type="int" />
+        </EntityType>
+        <EntityType Name="TrenutnoUlogovani">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ucenik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ime" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Prezime" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Visina" Type="float" Nullable="false" />
+          <Property Name="Sifra" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Godine" Type="int" Nullable="false" />
+          <Property Name="Naziv_Skole" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pol" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="JMBG" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Razred" Type="int" />
+        </EntityType>
+        <Association Name="Ajdi">
+          <End Role="Tim" Type="Self.Tim" Multiplicity="0..1" />
+          <End Role="Pobede" Type="Self.Pobede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pobede">
+              <PropertyRef Name="Id_tima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nepotvrdjeni_ToTable">
+          <End Role="Skola" Type="Self.Skola" Multiplicity="1" />
+          <End Role="NepotvrdjeniUcenici" Type="Self.NepotvrdjeniUcenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skola">
+              <PropertyRef Name="Naziv" />
+            </Principal>
+            <Dependent Role="NepotvrdjeniUcenici">
+              <PropertyRef Name="Naziv_Skole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Statistika_ToTable">
+          <End Role="Ucenik" Type="Self.Ucenik" Multiplicity="0..1" />
+          <End Role="Statistika" Type="Self.Statistika" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucenik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Statistika">
+              <PropertyRef Name="ID_UCENIKA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Takmicenje_ToTable">
+          <End Role="Skola" Type="Self.Skola" Multiplicity="0..1" />
+          <End Role="Takmicenje" Type="Self.Takmicenje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skola">
+              <PropertyRef Name="Naziv" />
+            </Principal>
+            <Dependent Role="Takmicenje">
+              <PropertyRef Name="NazivSkole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tim_ToTable">
+          <End Role="Skola" Type="Self.Skola" Multiplicity="1" />
+          <End Role="Tim" Type="Self.Tim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skola">
+              <PropertyRef Name="Naziv" />
+            </Principal>
+            <Dependent Role="Tim">
+              <PropertyRef Name="Naziv_Skole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tim_ToTable_1">
+          <End Role="Ucenik" Type="Self.Ucenik" Multiplicity="1" />
+          <End Role="Tim" Type="Self.Tim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucenik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tim">
+              <PropertyRef Name="id_ucenika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucenik_ToTable">
+          <End Role="Skola" Type="Self.Skola" Multiplicity="1" />
+          <End Role="Ucenik" Type="Self.Ucenik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skola">
+              <PropertyRef Name="Naziv" />
+            </Principal>
+            <Dependent Role="Ucenik">
+              <PropertyRef Name="Naziv_Skole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BazaPodatakaModelStoreContainer">
+          <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Arhiva" EntityType="Self.Arhiva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mec" EntityType="Self.Mec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MVP" EntityType="Self.MVP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MVP1" EntityType="Self.MVP1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MVPOkruznogTakmicenja" EntityType="Self.MVPOkruznogTakmicenja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MVPSkolskogTakmicenja" EntityType="Self.MVPSkolskogTakmicenja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NepotvrdjeniUcenici" EntityType="Self.NepotvrdjeniUcenici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OkruzniMec" EntityType="Self.OkruzniMec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OkruznoTakmicenje" EntityType="Self.OkruznoTakmicenje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pobede" EntityType="Self.Pobede" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pobede2" EntityType="Self.Pobede2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PobednikOkruznogTakmicenja" EntityType="Self.PobednikOkruznogTakmicenja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PobednikSkolskogTakmcienja" EntityType="Self.PobednikSkolskogTakmcienja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PomocnaSkola" EntityType="Self.PomocnaSkola" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RsSkolskog" EntityType="Self.RsSkolskog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skola" EntityType="Self.Skola" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statistika" EntityType="Self.Statistika" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Takmicenje" EntityType="Self.Takmicenje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tim" EntityType="Self.Tim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrenutnoUlogovani" EntityType="Self.TrenutnoUlogovani" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ucenik" EntityType="Self.Ucenik" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Ajdi" Association="Self.Ajdi">
+            <End Role="Tim" EntitySet="Tim" />
+            <End Role="Pobede" EntitySet="Pobede" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nepotvrdjeni_ToTable" Association="Self.FK_Nepotvrdjeni_ToTable">
+            <End Role="Skola" EntitySet="Skola" />
+            <End Role="NepotvrdjeniUcenici" EntitySet="NepotvrdjeniUcenici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Statistika_ToTable" Association="Self.FK_Statistika_ToTable">
+            <End Role="Ucenik" EntitySet="Ucenik" />
+            <End Role="Statistika" EntitySet="Statistika" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Takmicenje_ToTable" Association="Self.FK_Takmicenje_ToTable">
+            <End Role="Skola" EntitySet="Skola" />
+            <End Role="Takmicenje" EntitySet="Takmicenje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tim_ToTable" Association="Self.FK_Tim_ToTable">
+            <End Role="Skola" EntitySet="Skola" />
+            <End Role="Tim" EntitySet="Tim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tim_ToTable_1" Association="Self.FK_Tim_ToTable_1">
+            <End Role="Ucenik" EntitySet="Ucenik" />
+            <End Role="Tim" EntitySet="Tim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucenik_ToTable" Association="Self.FK_Ucenik_ToTable">
+            <End Role="Skola" EntitySet="Skola" />
+            <End Role="Ucenik" EntitySet="Ucenik" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BazaPodatakaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Prezime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Sifra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Drzava" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JMBG" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NepotvrdjeniUcenici">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Visina" Type="Double" Nullable="false" />
+          <Property Name="Sifra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Godine" Type="Int32" Nullable="false" />
+          <Property Name="Naziv_Skole" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JMBG" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Razred" Type="Int32" />
+          <NavigationProperty Name="Skola" Relationship="Self.FK_Nepotvrdjeni_ToTable" FromRole="NepotvrdjeniUcenici" ToRole="Skola" />
+        </EntityType>
+        <EntityType Name="PomocnaSkola">
+          <Key>
+            <PropertyRef Name="Naziv" />
+          </Key>
+          <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sifra" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Grad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Skola">
+          <Key>
+            <PropertyRef Name="Naziv" />
+          </Key>
+          <Property Name="Naziv" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sifra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Grad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="NepotvrdjeniUcenicis" Relationship="Self.FK_Nepotvrdjeni_ToTable" FromRole="Skola" ToRole="NepotvrdjeniUcenici" />
+          <NavigationProperty Name="Takmicenjes" Relationship="Self.FK_Takmicenje_ToTable" FromRole="Skola" ToRole="Takmicenje" />
+          <NavigationProperty Name="Tims" Relationship="Self.FK_Tim_ToTable" FromRole="Skola" ToRole="Tim" />
+          <NavigationProperty Name="Uceniks" Relationship="Self.FK_Ucenik_ToTable" FromRole="Skola" ToRole="Ucenik" />
+        </EntityType>
+        <EntityType Name="Statistika">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrPoena" Type="Int32" />
+          <Property Name="Efikasnost" Type="Double" />
+          <Property Name="ID_UCENIKA" Type="Int32" />
+          <NavigationProperty Name="Ucenik" Relationship="Self.FK_Statistika_ToTable" FromRole="Statistika" ToRole="Ucenik" />
+        </EntityType>
+        <EntityType Name="Takmicenje">
+          <Key>
+            <PropertyRef Name="IdTakmicenja" />
+          </Key>
+          <Property Name="IdTakmicenja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivSkole" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Razred" Type="Int32" />
+          <NavigationProperty Name="Skola" Relationship="Self.FK_Takmicenje_ToTable" FromRole="Takmicenje" ToRole="Skola" />
+        </EntityType>
+        <EntityType Name="Tim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv_Skole" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_ucenika" Type="Int32" Nullable="false" />
+          <Property Name="Razred" Type="Int32" />
+          <NavigationProperty Name="Skola" Relationship="Self.FK_Tim_ToTable" FromRole="Tim" ToRole="Skola" />
+          <NavigationProperty Name="Ucenik" Relationship="Self.FK_Tim_ToTable_1" FromRole="Tim" ToRole="Ucenik" />
+          <NavigationProperty Name="Pobedes" Relationship="BazaPodatakaModel.Ajdi" FromRole="Tim" ToRole="Pobede" />
+        </EntityType>
+        <EntityType Name="TrenutnoUlogovani">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ucenik">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ime" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Visina" Type="Double" Nullable="false" />
+          <Property Name="Sifra" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Godine" Type="Int32" Nullable="false" />
+          <Property Name="Naziv_Skole" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pol" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JMBG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Razred" Type="Int32" />
+          <NavigationProperty Name="Skola" Relationship="Self.FK_Ucenik_ToTable" FromRole="Ucenik" ToRole="Skola" />
+          <NavigationProperty Name="Statistikas" Relationship="Self.FK_Statistika_ToTable" FromRole="Ucenik" ToRole="Statistika" />
+          <NavigationProperty Name="Tims" Relationship="Self.FK_Tim_ToTable_1" FromRole="Ucenik" ToRole="Tim" />
+        </EntityType>
+        <Association Name="FK_Nepotvrdjeni_ToTable">
+          <End Role="Skola" Type="Self.Skola" Multiplicity="1" />
+          <End Role="NepotvrdjeniUcenici" Type="Self.NepotvrdjeniUcenici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skola">
+              <PropertyRef Name="Naziv" />
+            </Principal>
+            <Dependent Role="NepotvrdjeniUcenici">
+              <PropertyRef Name="Naziv_Skole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Takmicenje_ToTable">
+          <End Role="Skola" Type="Self.Skola" Multiplicity="0..1" />
+          <End Role="Takmicenje" Type="Self.Takmicenje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skola">
+              <PropertyRef Name="Naziv" />
+            </Principal>
+            <Dependent Role="Takmicenje">
+              <PropertyRef Name="NazivSkole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tim_ToTable">
+          <End Role="Skola" Type="Self.Skola" Multiplicity="1" />
+          <End Role="Tim" Type="Self.Tim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skola">
+              <PropertyRef Name="Naziv" />
+            </Principal>
+            <Dependent Role="Tim">
+              <PropertyRef Name="Naziv_Skole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ucenik_ToTable">
+          <End Role="Skola" Type="Self.Skola" Multiplicity="1" />
+          <End Role="Ucenik" Type="Self.Ucenik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skola">
+              <PropertyRef Name="Naziv" />
+            </Principal>
+            <Dependent Role="Ucenik">
+              <PropertyRef Name="Naziv_Skole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Statistika_ToTable">
+          <End Role="Ucenik" Type="Self.Ucenik" Multiplicity="0..1" />
+          <End Role="Statistika" Type="Self.Statistika" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucenik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Statistika">
+              <PropertyRef Name="ID_UCENIKA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tim_ToTable_1">
+          <End Role="Ucenik" Type="Self.Ucenik" Multiplicity="1" />
+          <End Role="Tim" Type="Self.Tim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ucenik">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tim">
+              <PropertyRef Name="id_ucenika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BAZA3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrators" EntityType="Self.Administrator" />
+          <EntitySet Name="NepotvrdjeniUcenicis" EntityType="Self.NepotvrdjeniUcenici" />
+          <EntitySet Name="PomocnaSkolas" EntityType="Self.PomocnaSkola" />
+          <EntitySet Name="Skolas" EntityType="Self.Skola" />
+          <EntitySet Name="Statistikas" EntityType="Self.Statistika" />
+          <EntitySet Name="Takmicenjes" EntityType="Self.Takmicenje" />
+          <EntitySet Name="Tims" EntityType="Self.Tim" />
+          <EntitySet Name="TrenutnoUlogovanis" EntityType="Self.TrenutnoUlogovani" />
+          <EntitySet Name="Uceniks" EntityType="Self.Ucenik" />
+          <AssociationSet Name="FK_Nepotvrdjeni_ToTable" Association="Self.FK_Nepotvrdjeni_ToTable">
+            <End Role="Skola" EntitySet="Skolas" />
+            <End Role="NepotvrdjeniUcenici" EntitySet="NepotvrdjeniUcenicis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Takmicenje_ToTable" Association="Self.FK_Takmicenje_ToTable">
+            <End Role="Skola" EntitySet="Skolas" />
+            <End Role="Takmicenje" EntitySet="Takmicenjes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tim_ToTable" Association="Self.FK_Tim_ToTable">
+            <End Role="Skola" EntitySet="Skolas" />
+            <End Role="Tim" EntitySet="Tims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ucenik_ToTable" Association="Self.FK_Ucenik_ToTable">
+            <End Role="Skola" EntitySet="Skolas" />
+            <End Role="Ucenik" EntitySet="Uceniks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Statistika_ToTable" Association="Self.FK_Statistika_ToTable">
+            <End Role="Ucenik" EntitySet="Uceniks" />
+            <End Role="Statistika" EntitySet="Statistikas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tim_ToTable_1" Association="Self.FK_Tim_ToTable_1">
+            <End Role="Ucenik" EntitySet="Uceniks" />
+            <End Role="Tim" EntitySet="Tims" />
+          </AssociationSet>
+          <EntitySet Name="Pobedes" EntityType="BazaPodatakaModel.Pobede" />
+          <AssociationSet Name="Ajdi" Association="BazaPodatakaModel.Ajdi">
+            <End Role="Tim" EntitySet="Tims" />
+            <End Role="Pobede" EntitySet="Pobedes" />
+          </AssociationSet>
+          <EntitySet Name="PobednikSkolskogTakmcienjas" EntityType="BazaPodatakaModel.PobednikSkolskogTakmcienja" />
+          <EntitySet Name="RsSkolskogs" EntityType="BazaPodatakaModel.RsSkolskog" />
+          <EntitySet Name="OkruznoTakmicenjes" EntityType="BazaPodatakaModel.OkruznoTakmicenje" />
+          <EntitySet Name="OkruzniMecs" EntityType="BazaPodatakaModel.OkruzniMec" />
+          <EntitySet Name="Pobede2" EntityType="BazaPodatakaModel.Pobede2" />
+          <EntitySet Name="PobednikOkruznogTakmicenjas" EntityType="BazaPodatakaModel.PobednikOkruznogTakmicenja" />
+          <EntitySet Name="MVPs" EntityType="BazaPodatakaModel.MVP" />
+          <EntitySet Name="Mecs" EntityType="BazaPodatakaModel.Mec" />
+          <EntitySet Name="MVPSkolskogTakmicenjas" EntityType="BazaPodatakaModel.MVPSkolskogTakmicenja" />
+          <EntitySet Name="MVP1" EntityType="BazaPodatakaModel.MVP1" />
+          <EntitySet Name="MVPOkruznogTakmicenjas" EntityType="BazaPodatakaModel.MVPOkruznogTakmicenja" />
+          <EntitySet Name="Arhivas" EntityType="BazaPodatakaModel.Arhiva" />
+          </EntityContainer>
+        <EntityType Name="Pobede">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_tima" Type="Int32" />
+          <NavigationProperty Name="Tim" Relationship="BazaPodatakaModel.Ajdi" FromRole="Pobede" ToRole="Tim" />
+          <Property Name="NazivSkole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="Ajdi">
+          <End Type="BazaPodatakaModel.Tim" Role="Tim" Multiplicity="0..1" />
+          <End Type="BazaPodatakaModel.Pobede" Role="Pobede" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tim">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pobede">
+              <PropertyRef Name="Id_tima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PobednikSkolskogTakmcienja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Tima" Type="Int32" />
+          <Property Name="NazivSkole" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RsSkolskog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="id_ucenika" Type="Int32" />
+          <Property Name="NazivSkole" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Razred" Type="Int32" />
+          <Property Name="Red" Type="Int32" />
+          <Property Name="Kolona" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OkruznoTakmicenje">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivSkole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Razred" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OkruzniMec">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Razred1" Type="Int32" />
+          <Property Name="Razred2" Type="Int32" />
+          <Property Name="Poen1" Type="Int32" />
+          <Property Name="Poen2" Type="Int32" />
+          <Property Name="Odigrano" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NazivSkole1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NazivSkole2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Pobede2">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_TIma" Type="Int32" />
+          <Property Name="NazivSkole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PobednikOkruznogTakmicenja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivSkole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_tima" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MVP">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivSkole" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Id_uceniak" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Mec">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NazivSkole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Razred1" Type="Int32" />
+          <Property Name="Razred2" Type="Int32" />
+          <Property Name="Poen1" Type="Int32" />
+          <Property Name="Poen2" Type="Int32" />
+          <Property Name="Odigrano" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MVPSkolskogTakmicenja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivSkole" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Id_ucenika" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MVP1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Ucenika" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MVPOkruznogTakmicenja">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Ucenika" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Arhiva">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Takmicara" Type="Int32" />
+          <Property Name="Datum" Type="DateTime" Precision="3" />
+          <Property Name="Id_mvpija" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BazaPodatakaModelStoreContainer" CdmEntityContainer="BAZA3">
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="IsTypeOf(BazaPodatakaModel.Administrator)">
+              <MappingFragment StoreEntitySet="Administrator">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Drzava" ColumnName="Drzava" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NepotvrdjeniUcenicis">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.NepotvrdjeniUcenici">
+              <MappingFragment StoreEntitySet="NepotvrdjeniUcenici">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Visina" ColumnName="Visina" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="Godine" ColumnName="Godine" />
+                <ScalarProperty Name="Naziv_Skole" ColumnName="Naziv_Skole" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="pol" ColumnName="pol" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PomocnaSkolas">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.PomocnaSkola">
+              <MappingFragment StoreEntitySet="PomocnaSkola">
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="Grad" ColumnName="Grad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skolas">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Skola">
+              <MappingFragment StoreEntitySet="Skola">
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="Grad" ColumnName="Grad" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statistikas">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Statistika">
+              <MappingFragment StoreEntitySet="Statistika">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BrPoena" ColumnName="BrPoena" />
+                <ScalarProperty Name="Efikasnost" ColumnName="Efikasnost" />
+                <ScalarProperty Name="ID_UCENIKA" ColumnName="ID_UCENIKA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Takmicenjes">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Takmicenje">
+              <MappingFragment StoreEntitySet="Takmicenje">
+                <ScalarProperty Name="IdTakmicenja" ColumnName="IdTakmicenja" />
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tims">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Tim">
+              <MappingFragment StoreEntitySet="Tim">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naziv_Skole" ColumnName="Naziv_Skole" />
+                <ScalarProperty Name="id_ucenika" ColumnName="id_ucenika" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrenutnoUlogovanis">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.TrenutnoUlogovani">
+              <MappingFragment StoreEntitySet="TrenutnoUlogovani">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uceniks">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Ucenik">
+              <MappingFragment StoreEntitySet="Ucenik">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Visina" ColumnName="Visina" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="Godine" ColumnName="Godine" />
+                <ScalarProperty Name="Naziv_Skole" ColumnName="Naziv_Skole" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="pol" ColumnName="pol" />
+                <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pobedes">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Pobede">
+              <MappingFragment StoreEntitySet="Pobede">
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Id_tima" ColumnName="Id_tima" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PobednikSkolskogTakmcienjas">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.PobednikSkolskogTakmcienja">
+              <MappingFragment StoreEntitySet="PobednikSkolskogTakmcienja">
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Id_Tima" ColumnName="Id_Tima" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RsSkolskogs">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.RsSkolskog">
+              <MappingFragment StoreEntitySet="RsSkolskog">
+                <ScalarProperty Name="Kolona" ColumnName="Kolona" />
+                <ScalarProperty Name="Red" ColumnName="Red" />
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="id_ucenika" ColumnName="id_ucenika" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OkruznoTakmicenjes">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.OkruznoTakmicenje">
+              <MappingFragment StoreEntitySet="OkruznoTakmicenje">
+                <ScalarProperty Name="Razred" ColumnName="Razred" />
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OkruzniMecs">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.OkruzniMec">
+              <MappingFragment StoreEntitySet="OkruzniMec">
+                <ScalarProperty Name="NazivSkole2" ColumnName="NazivSkole2" />
+                <ScalarProperty Name="NazivSkole1" ColumnName="NazivSkole1" />
+                <ScalarProperty Name="Odigrano" ColumnName="Odigrano" />
+                <ScalarProperty Name="Poen2" ColumnName="Poen2" />
+                <ScalarProperty Name="Poen1" ColumnName="Poen1" />
+                <ScalarProperty Name="Razred2" ColumnName="Razred2" />
+                <ScalarProperty Name="Razred1" ColumnName="Razred1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pobede2">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Pobede2">
+              <MappingFragment StoreEntitySet="Pobede2">
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Id_TIma" ColumnName="Id-TIma" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PobednikOkruznogTakmicenjas">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.PobednikOkruznogTakmicenja">
+              <MappingFragment StoreEntitySet="PobednikOkruznogTakmicenja">
+                <ScalarProperty Name="Id_tima" ColumnName="Id_tima" />
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MVPs">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.MVP">
+              <MappingFragment StoreEntitySet="MVP">
+                <ScalarProperty Name="Id_uceniak" ColumnName="Id_uceniak" />
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mecs">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Mec">
+              <MappingFragment StoreEntitySet="Mec">
+                <ScalarProperty Name="Odigrano" ColumnName="Odigrano" />
+                <ScalarProperty Name="Poen2" ColumnName="Poen2" />
+                <ScalarProperty Name="Poen1" ColumnName="Poen1" />
+                <ScalarProperty Name="Razred2" ColumnName="Razred2" />
+                <ScalarProperty Name="Razred1" ColumnName="Razred1" />
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MVPSkolskogTakmicenjas">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.MVPSkolskogTakmicenja">
+              <MappingFragment StoreEntitySet="MVPSkolskogTakmicenja">
+                <ScalarProperty Name="Id_ucenika" ColumnName="Id_ucenika" />
+                <ScalarProperty Name="NazivSkole" ColumnName="NazivSkole" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MVP1">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.MVP1">
+              <MappingFragment StoreEntitySet="MVP1">
+                <ScalarProperty Name="Id_Ucenika" ColumnName="Id_Ucenika" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MVPOkruznogTakmicenjas">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.MVPOkruznogTakmicenja">
+              <MappingFragment StoreEntitySet="MVPOkruznogTakmicenja">
+                <ScalarProperty Name="Id_Ucenika" ColumnName="Id_Ucenika" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Arhivas">
+            <EntityTypeMapping TypeName="BazaPodatakaModel.Arhiva">
+              <MappingFragment StoreEntitySet="Arhiva">
+                <ScalarProperty Name="Id_mvpija" ColumnName="Id_mvpija" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Id_Takmicara" ColumnName="Id_Takmicara" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

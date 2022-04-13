@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d1e368471f1846cbbea63f74872b66fa" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="BazaPodatakaModel.Administrator" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.NepotvrdjeniUcenici" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.PomocnaSkola" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Skola" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Statistika" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Takmicenje" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Tim" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.TrenutnoUlogovani" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Ucenik" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="BazaPodatakaModel.FK_Nepotvrdjeni_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="BazaPodatakaModel.FK_Takmicenje_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="BazaPodatakaModel.FK_Tim_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="BazaPodatakaModel.FK_Ucenik_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="BazaPodatakaModel.FK_Statistika_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="BazaPodatakaModel.FK_Tim_ToTable_1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Pobede" Width="1.5" PointX="7.5" PointY="10.125" />
+        <AssociationConnector Association="BazaPodatakaModel.Ajdi" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.PobednikSkolskogTakmcienja" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.RsSkolskog" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.OkruznoTakmicenje" Width="1.5" PointX="8.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.OkruzniMec" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Pobede2" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.PobednikOkruznogTakmicenja" Width="1.5" PointX="10.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.MVP" Width="1.5" PointX="10.375" PointY="10.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Mec" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.MVPSkolskogTakmicenja" Width="1.5" PointX="12.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.MVP1" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.MVPOkruznogTakmicenja" Width="1.5" PointX="12.375" PointY="10.75" />
+        <EntityTypeShape EntityType="BazaPodatakaModel.Arhiva" Width="1.5" PointX="13.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

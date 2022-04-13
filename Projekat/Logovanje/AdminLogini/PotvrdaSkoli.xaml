@@ -1,0 +1,57 @@
+﻿<Page x:Class="Projekat.Logovanje.PotvrdaSkoli"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projekat.Logovanje"
+      xmlns:l="clr-namespace:Projekat"
+
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Loaded="Page_Loaded"
+      Title="PotvrdaSkoli">
+
+    <Border BorderThickness="2" BorderBrush="White">
+        <Grid >
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF520850" Offset="0.2" />
+
+                    <GradientStop Color="#8449bf" Offset="0.0" />
+                    <GradientStop Color="#FF7F1BE0" Offset="0.5"/>
+                    <GradientStop Color="Black" Offset="1.1"/>
+
+
+
+                </LinearGradientBrush>
+
+            </Grid.Background>
+            <StackPanel Margin="0">
+                <TextBlock Foreground="White" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,10">NEPOTVRDJENE SKOLE:</TextBlock>
+                <Border BorderThickness="10" CornerRadius="3" BorderBrush="#29024f">
+                    <DataGrid IsReadOnly="True" Foreground="White" Background="#8d42d6"   SelectionMode="Single"  x:Name="Gridara" Height="290"  >
+
+                    </DataGrid>
+                </Border>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button
+  Margin="5"  Click="Potvrda"
+  Style="{StaticResource MaterialDesignRaisedLightButton}"
+  Width="100"
+  Foreground="black"
+  Background="LightSteelBlue"
+  ToolTip="Resource name: MaterialDesignRaisedLightButton"
+  Content="Potvrdi" />
+                    <Button
+  Margin="5"    Click="Odbi"
+  Style="{StaticResource MaterialDesignRaisedLightButton}"
+  Width="100"
+  Foreground="black"
+  Background="LightSteelBlue"
+  ToolTip="Resource name: MaterialDesignRaisedLightButton"
+  Content="Odbi" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>
