@@ -1,4 +1,6 @@
 # Wpf_Projekat
+https://youtu.be/5ovibI0nrXg  <- Demo
+
 
 Postoje 3 tipa korisnika,admin skola ucenik.
 Admin potvrdjuje skole/ucenike
